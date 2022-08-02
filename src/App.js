@@ -1,65 +1,71 @@
 
 import './App.css';
-import React, {useState} from  'react';
-const [showTomato, setShowTomato] = useState(true);
 
-function TopBread()
-{
-  const mystyle={
-    background:"orange",
-    border: "20px 20px 0px 0px"
-  };
-return <div><button mstyle={mystyle} style={{border: '1px dashed red', borderRadius: '20% 20% 0% 0%'}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button></div>
+import React, { useState } from 'react';
+
+const TopBread = () => {
+  const [show, setShow] = useState(true);
+  return(
+    <>
+      <button style={{border: '1px dashed red', borderRadius: '20% 20% 0% 0%'}} onClick={() => setShow(prev => !prev)}> </button>     
+    </>
+  );
 }
-
-function Tomato() {
- 
+const Tomato = () => {
+  const [show, setShow] = useState(true);
   const mystyle={
-    background:"red",
-    border: "20px 20px 0px 0px"
+    background:"red"
   };
- return <div><button onClick={() => setShowTomato(true)} style={mystyle}>Tomato</button></div>
-
+  return(
+    <>
+      <button style={mystyle} onClick={() => setShow(prev => !prev)}> {show && <p>Tomato</p>}</button>
+    </>
+  );
 }
-function Meat()
-{
+const Meat = () => {
+  const [show, setShow] = useState(true);
   const mystyle={
     background:"brown"
   };
-return <div><button style={mystyle}>Meat</button></div>
+  return(
+    <>
+      <button style={mystyle} onClick={() => setShow(prev => !prev)}> {show && <p>Meat</p>}</button>    
+    </>
+  );
 }
-function Lattice()
-{
+const Lattice = () => {
+  const [show, setShow] = useState(true);
   const mystyle={
     background:"green"
   };
-return <div><button style={mystyle}>Lattice</button></div>
-}
-function BaseBread()
-{
-  const mystyle={
-    background:"orange"
-  };
-return <div><button mstyle={mystyle} style={{border: '1px dashed red', borderRadius: '0% 0% 20% 20%'}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button></div>
-}
-function App() {
-  return (
-    <div>
-      <header>
-        </header>
-          <h1>ACA Burger</h1>
-
-            <TopBread />
-            <br></br>
-            <Tomato />
-            <br></br>
-            <Meat />
-            <br></br>
-            <Lattice />
-            <br></br>
-            <BaseBread />
-    </div>
+  return(
+    <>
+      <button style={mystyle} onClick={() => setShow(prev => !prev)}> {show && <p>Lattice</p>}</button>     
+    </>
   );
 }
-
+const BaseBread = () => {
+  const [show, setShow] = useState(true);
+  return(
+    <>
+      <button  style={{border: '1px dashed red', borderRadius: '0% 0% 20% 20%'}} onClick={() => setShow(prev => !prev)}> </button>     
+    </>
+  );
+}
+ function App() {
+  return (
+    <div style={{textAlign: 'center'}}>
+      <h1>ACA Burger</h1>
+        <div><TopBread/> </div>
+        <br></br>
+        <div><Tomato/></div>
+        <br></br>
+        <div><Meat/></div>
+        <br></br>
+        <div><Lattice/></div>
+        <br></br>
+        <div><BaseBread/></div>
+      </div>
+  );
+}
 export default App;
