@@ -18,7 +18,7 @@ const Tomato = () => {
   };
   return(
     <>
-      <button style={mystyle} onClick={() => setShow(prev => !prev)}> {show && <p>Tomato</p>}</button>
+      <button style={mystyle} onClick={() => setShow(prev => !prev)}> {show && <p> style={mystyle} Tomato</p>}</button>
     </>
   );
 }
