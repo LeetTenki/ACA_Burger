@@ -1,8 +1,8 @@
-
+/* Burger app that allow person to remove ingredients they do not like */
 import './App.css';
-
 import React, { useState } from 'react';
 
+/* Below are ingredients of the burger*/
 const TopBread = () => {
   const [show, setShow] = useState(true);
   return(
@@ -11,41 +11,50 @@ const TopBread = () => {
     </>
   );
 }
+
 const Tomato = () => {
-  const [show, setShow] = useState(true);
+  const [hidden, setHidden] = useState(false);
   const mystyle={
     background:"red"
   };
   return(
-    <>
-      <button style={mystyle} onClick={() => setShow(prev => !prev)}> {show && <p> style={mystyle} Tomato</p>}</button>
-    </>
+    <div>
+       <div className="Tomato">
+          {!hidden && <button  style={mystyle} onClick={() => setHidden(true)}>Tomato</button>}
+      </div>
+    </div>
   );
 }
+
 const Meat = () => {
-  const [show, setShow] = useState(true);
+  const [hidden, setHidden] = useState(false);
   const mystyle={
     background:"brown"
   };
   return(
-    <>
-      <button style={mystyle} onClick={() => setShow(prev => !prev)}> {show && <p>Meat</p>}</button>    
-    </>
+    <div>
+      <div className="Meat">
+        {!hidden && <button  style={mystyle} onClick={() => setHidden(true)}>Meat</button>}
+      </div>
+   </div>
   );
 }
+
 const Lattice = () => {
-  const [show, setShow] = useState(true);
+  const [hidden, setHidden] = useState(false); //default state of button is not removed
   const mystyle={
     background:"green"
   };
   return(
-    <>
-      <button style={mystyle} onClick={() => setShow(prev => !prev)}> {show && <p>Lattice</p>}</button>     
-    </>
+    <div>
+      <div className="Lattice">
+        {!hidden && <button  style={mystyle} onClick={() => setHidden(true)}>Lattice</button>}
+      </div>
+   </div>
   );
 }
 const BaseBread = () => {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(true); 
   return(
     <>
       <button  style={{border: '1px dashed red', borderRadius: '0% 0% 20% 20%'}} onClick={() => setShow(prev => !prev)}> </button>     
@@ -55,7 +64,9 @@ const BaseBread = () => {
  function App() {
   return (
     <div style={{textAlign: 'center'}}>
-      <h1>ACA Burger</h1>
+
+        <h1>ACA Burger</h1>
+
         <div><TopBread/> </div>
         <br></br>
         <div><Tomato/></div>
